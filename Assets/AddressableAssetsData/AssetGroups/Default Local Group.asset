@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Default Local Group
   m_GUID: 33cc79677e26e0843b7c4821f81638ee
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 9c2b714c05be4b44fb64bc60e69eba3e
+    m_Address: Assets/Prefabs/mauritania_background_water.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: d9461e5c100277b44b7576267eacba53, type: 2}
   m_SchemaSet:
