@@ -5,7 +5,7 @@ namespace Domain.Grid {
         public int Width { get; }
         public int Height { get; }
         
-        readonly HexTileType[] _tiles;
+        readonly HexTileType[] tiles;
         
         public HexGridData(int width, int height, HexTileType[] tiles) {
             if (width <= 0)
@@ -19,18 +19,29 @@ namespace Domain.Grid {
 
             Width = width;
             Height = height;
-            _tiles = tiles;
+            this.tiles = tiles;
         }
 
-        public bool InBounds(int q, int r) => q >= 0 && q < Width && r >= 0 && r < Height;
+        public HexCoord[] GetAllWaterTiles() {
+            var waterTiles = new HexCoord[tiles.Length];
+            for (int i = 0; i < tiles.Length; i++) {
+                if (tiles[i] == HexTileType.Water) {
+                    waterTiles[i] = new HexCoord(i % Width, i / Width);
+                }
+            }
+            
+            return waterTiles;
+        }
 
         public HexTileType Get(int q, int r) {
             if (!InBounds(q, r))
                 throw new ArgumentOutOfRangeException($"Out of bounds: ({q},{r})");
 
-            return _tiles[r * Width + q];
+            return tiles[r * Width + q];
         }
         
-        public HexTileType Get(HexCoord coord) => Get(coord.Q, coord.R);
+        public bool InBounds(int q, int r) => q >= 0 && q < Width && r >= 0 && r < Height;
+        
+        public HexTileType Get(HexCoord coord) => Get(coord.q, coord.r);
     }
 }

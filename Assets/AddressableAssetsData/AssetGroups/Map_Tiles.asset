@@ -60,8 +60,7 @@ MonoBehaviour:
   - m_GUID: d732ac8b5d3d47548814bd705fbe6b4d
     m_Address: Assets/Prefabs/tile_water_02.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - WaterTile
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: d9461e5c100277b44b7576267eacba53, type: 2}

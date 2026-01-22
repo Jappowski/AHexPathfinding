@@ -3,6 +3,7 @@ using System.Threading;
 using Domain.Grid;
 using Services.AssetManagement;
 using Services.Map;
+using Services.Player;
 using UnityEngine;
 
 namespace Presentation.Bootstrap {
@@ -20,10 +21,12 @@ namespace Presentation.Bootstrap {
             cts = new CancellationTokenSource();
             assetProvider = new AddressableAssetProvider(addressableRefConfig);
             var gridBuilder = new GridBuilder(hexLayout, hexGridData, assetProvider);
-           
+            var playerSpawner = new PlayerSpawner(assetProvider, hexGridData, hexLayout);
             try {
                 await assetProvider.InitializeAsync(cts.Token);
                 await gridBuilder.BuildGrid(cts.Token);
+                await gridBuilder.PopulateTerrainWithProps(cts.Token);
+                await playerSpawner.SpawnPlayer(cts.Token);
             }
             catch (OperationCanceledException _) {
                 Debug.Log("Operation cancelled");

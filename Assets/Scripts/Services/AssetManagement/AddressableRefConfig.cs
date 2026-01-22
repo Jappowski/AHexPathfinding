@@ -6,6 +6,9 @@ namespace Services.AssetManagement {
     public class AddressableRefConfig : ScriptableObject {
             public AssetReferenceGameObject waterTile;
             public AssetReferenceGameObject waterBackground;
+            public AssetReferenceGameObject boat;
+
             public AssetLabelReference terrainTilesLabel;
+            public AssetLabelReference propsLabel;
     }
 }

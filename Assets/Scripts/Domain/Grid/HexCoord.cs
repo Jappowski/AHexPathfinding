@@ -2,20 +2,20 @@ using System;
 
 namespace Domain.Grid {
     public readonly struct HexCoord : IEquatable<HexCoord> {
-        public readonly int Q; //column
-        public readonly int R; //row (axial)
+        public readonly int q; //column
+        public readonly int r; //row (axial)
 
         public HexCoord(int q, int r) {
-            Q = q;
-            R = r;
+            this.q = q;
+            this.r = r;
         }
 
-        public bool Equals(HexCoord other) => Q == other.Q && R == other.R;
+        public bool Equals(HexCoord other) => q == other.q && r == other.r;
 
         public override bool Equals(object obj) => obj is HexCoord other && Equals(other);
 
-        public override int GetHashCode() => HashCode.Combine(Q, R);
+        public override int GetHashCode() => HashCode.Combine(q, r);
         
-        public override string ToString() => $"({Q}, {R})";
+        public override string ToString() => $"({q}, {r})";
     }
 }

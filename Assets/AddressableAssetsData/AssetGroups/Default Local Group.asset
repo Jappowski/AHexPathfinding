@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a563157a4ceeb234d8d2b8bbbd4d5ab4
+    m_Address: Assets/Prefabs/mauritania_boat.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: d9461e5c100277b44b7576267eacba53, type: 2}
   m_SchemaSet:

@@ -103,8 +103,8 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
-    - WaterTile
     - TerrainTile
+    - Prop
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 08cdf1c9f131c314b8d29444e718ea84, type: 2}

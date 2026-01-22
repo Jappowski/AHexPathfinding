@@ -24,5 +24,11 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
+  boat:
+    m_AssetGUID: a563157a4ceeb234d8d2b8bbbd4d5ab4
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   terrainTilesLabel:
     m_LabelString: TerrainTile

@@ -20,6 +20,8 @@ namespace Services.AssetManagement {
                 { AssetKey.WaterTile, refConfig.waterTile },
                 { AssetKey.TerrainTiles, refConfig.terrainTilesLabel },
                 { AssetKey.WaterBackground, refConfig.waterBackground },
+                { AssetKey.Boat , refConfig.boat },
+                { AssetKey.Props , refConfig.propsLabel },
             };
         }
 

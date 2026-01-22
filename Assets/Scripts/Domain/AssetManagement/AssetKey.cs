@@ -4,5 +4,6 @@ namespace Domain.AssetManagement {
         TerrainTiles,
         WaterBackground,
         Boat,
+        Props,
     }
 }

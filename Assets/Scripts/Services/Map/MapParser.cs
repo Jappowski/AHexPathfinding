@@ -14,8 +14,8 @@ namespace Services.Map {
             var height = lines.Count;
             if (width == 0)
                 throw new FormatException("Map width is zero.");
-
             return CreateHexGridData(lines, width, height);
+
         }
 
         static List<string> ParseTextIntoLines(string text) {
