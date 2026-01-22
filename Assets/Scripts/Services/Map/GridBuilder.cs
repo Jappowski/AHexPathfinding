@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Domain.AssetManagement;
+using Presentation.Grid;
 using Services.AssetManagement;
 using UnityEngine;
 
@@ -44,11 +45,13 @@ namespace Domain.Grid {
                         : waterTile;
                     var position = GridUtils.HexToWorld(hexLayout, coord);
 
-                    Object.Instantiate(prefab, position, Quaternion.identity, isTerrain ? terrainTileParent.transform : waterTileParent.transform);
+                    var instance = Object.Instantiate(prefab, position, Quaternion.identity,
+                        isTerrain ? terrainTileParent.transform : waterTileParent.transform);
+                    var tileComponent = instance.GetComponent<TileView>();
+                    if (tileComponent)
+                        tileComponent.Init( coord, hexGridData.Get(coord));
                 }
             }
-
-            await Task.Yield();
         }
 
         public async Task PopulateTerrainWithProps(CancellationToken ct) {

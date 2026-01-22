@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 619930431975393519}
+  - component: {fileID: -6315655753415208772}
   m_Layer: 0
   m_Name: mauritania_boat
   m_TagString: Untagged
@@ -32,6 +33,18 @@ Transform:
   - {fileID: 7288394656542473418}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6315655753415208772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3242643006856148975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a763c85567c74cef87dbb24ba7a88fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Presentation.Boat.BoatComponent
 --- !u!1001 &7110952013989206817
 PrefabInstance:
   m_ObjectHideFlags: 0

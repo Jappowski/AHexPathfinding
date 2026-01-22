@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using Domain.Grid;
+using Presentation.Boat;
 using Services.AssetManagement;
 using Services.Map;
 using Services.Player;
@@ -10,6 +11,7 @@ namespace Presentation.Bootstrap {
     public class GameBootstrapper : MonoBehaviour {
         [SerializeField] TextAsset map;
         [SerializeField] AddressableRefConfig addressableRefConfig;
+        [SerializeField] BoatNavigationController boatNavigationController;
         [SerializeField] HexLayout hexLayout;
         
         AddressableAssetProvider assetProvider;
@@ -26,7 +28,8 @@ namespace Presentation.Bootstrap {
                 await assetProvider.InitializeAsync(cts.Token);
                 await gridBuilder.BuildGrid(cts.Token);
                 await gridBuilder.PopulateTerrainWithProps(cts.Token);
-                await playerSpawner.SpawnPlayer(cts.Token);
+                var player = await playerSpawner.SpawnPlayer(cts.Token);
+                boatNavigationController.Init(hexGridData, player, hexLayout);
             }
             catch (OperationCanceledException _) {
                 Debug.Log("Operation cancelled");

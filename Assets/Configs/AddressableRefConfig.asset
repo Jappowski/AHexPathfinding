@@ -32,3 +32,5 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   terrainTilesLabel:
     m_LabelString: TerrainTile
+  propsLabel:
+    m_LabelString: Prop

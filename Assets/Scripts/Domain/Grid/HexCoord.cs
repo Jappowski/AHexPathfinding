@@ -1,9 +1,10 @@
 using System;
 
 namespace Domain.Grid {
-    public readonly struct HexCoord : IEquatable<HexCoord> {
-        public readonly int q; //column
-        public readonly int r; //row (axial)
+    [Serializable]
+    public struct HexCoord : IEquatable<HexCoord> {
+        public int q; //column
+        public int r; //row (axial)
 
         public HexCoord(int q, int r) {
             this.q = q;
