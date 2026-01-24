@@ -37,19 +37,29 @@ namespace Presentation.Boat {
                 var start = boat.CurrentCoord;
                 var path = await pathfinder.FindPathAsync(start, goal, movementCancellationToken.Token);
                 pathVisualizer.ShowPath(path, layout);
-                
-                if (path.Count > 0)
-                    await boat.MoveAlongPathAsync(path.ToArray(), movementCancellationToken.Token);
+
+                if (path.Count <= 0)
+                    return;
+
+                var calculatedPath = GridUtils.HexToWorld(layout, path);
+                await boat.MoveAlongPathAsync(calculatedPath, layout, movementCancellationToken.Token);
+                pathVisualizer.Clear();
             }
-            catch (OperationCanceledException) { }
+            catch (OperationCanceledException) {
+                pathVisualizer.Clear();
+            }
             catch (Exception e) {
+                pathVisualizer.Clear();
                 Debug.LogException(e);
             }
         }
 
-        void CancelAndDisposeToken(CancellationTokenSource ct) {
-            movementCancellationToken?.Cancel();
-            movementCancellationToken?.Dispose();
+        static void CancelAndDisposeToken(CancellationTokenSource ct) {
+            if (ct == null)
+                return;
+
+            ct.Cancel();
+            ct.Dispose();
         }
     }
 }

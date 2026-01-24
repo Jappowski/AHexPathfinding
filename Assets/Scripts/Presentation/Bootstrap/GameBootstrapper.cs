@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using Domain.Grid;
 using Presentation.Boat;
+using Presentation.Camera;
 using Services.AssetManagement;
 using Services.Map;
 using Services.Player;
@@ -12,6 +13,7 @@ namespace Presentation.Bootstrap {
         [SerializeField] TextAsset map;
         [SerializeField] AddressableRefConfig addressableRefConfig;
         [SerializeField] BoatNavigationController boatNavigationController;
+        [SerializeField] CameraSmoothFollow cameraSmoothFollow;
         [SerializeField] HexLayout hexLayout;
         
         AddressableAssetProvider assetProvider;
@@ -30,6 +32,7 @@ namespace Presentation.Bootstrap {
                 await gridBuilder.PopulateTerrainWithProps(cts.Token);
                 var player = await playerSpawner.SpawnPlayer(cts.Token);
                 boatNavigationController.Init(hexGridData, player, hexLayout);
+                cameraSmoothFollow.SetTarget(player.transform);
             }
             catch (OperationCanceledException _) {
                 Debug.Log("Operation cancelled");

@@ -7,11 +7,11 @@ namespace Presentation.Input {
     public class InputManager : MonoBehaviour {
         public event Action<HexCoord> OnMouseClicked;
 
-        [SerializeField] Camera camera;
+        [SerializeField] UnityEngine.Camera camera;
         
         void Awake() {
             if (camera == null)
-                camera = Camera.main;
+                camera = UnityEngine.Camera.main;
         }
 
         void Update() {

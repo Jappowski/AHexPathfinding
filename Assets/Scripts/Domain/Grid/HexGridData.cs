@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Domain.Grid {
     public class HexGridData {
@@ -23,14 +24,14 @@ namespace Domain.Grid {
         }
 
         public HexCoord[] GetAllWaterTiles() {
-            var waterTiles = new HexCoord[tiles.Length];
-            for (int i = 0; i < tiles.Length; i++) {
-                if (tiles[i] == HexTileType.Water) {
-                    waterTiles[i] = new HexCoord(i % Width, i / Width);
-                }
+            var list = new List<HexCoord>();
+
+            for (var i = 0; i < tiles.Length; i++) {
+                if (tiles[i] == HexTileType.Water)
+                    list.Add(new HexCoord(i % Width, i / Width));
             }
-            
-            return waterTiles;
+
+            return list.ToArray();
         }
 
         public HexTileType Get(int q, int r) {

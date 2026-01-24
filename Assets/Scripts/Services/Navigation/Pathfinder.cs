@@ -25,11 +25,16 @@ namespace Services.Navigation {
             
             var cameFrom = new Dictionary<HexCoord, HexCoord>();
             var gScore = new Dictionary<HexCoord, int> { [start] = 0 };
+            var closed = new HashSet<HexCoord>();
 
             while (open.Count > 0) {
                 cancellationToken.ThrowIfCancellationRequested();
                 
                 var current = open.Dequeue();
+                if (closed.Contains(current))
+                    continue;
+
+                closed.Add(current);
                 if (current.Equals(goal))
                     return Reconstruct(cameFrom, current);
                 

@@ -25,5 +25,9 @@ namespace Presentation.Visuals {
                 lineRenderer.SetPosition(i, position);
             }
         }
+        
+        public void Clear() {
+            lineRenderer.positionCount = 0;
+        }
     }
 }
